@@ -4,10 +4,10 @@ resource "aws_s3_bucket" "bucket1" {
         name="test-bucket-${count.index}"
         }
 }
-resource "aws_s3_bucket" "example" {
-  bucket = "example-bucket"
+resource "aws_s3_bucket" "bucket1" {
+  bucket = "bucket1-bucket"
 }
-/*
+
 resource "aws_s3_bucket_acl" "bucket1" {
   bucket = aws_s3_bucket.bucket1.id
   acl    = "private"
@@ -19,4 +19,4 @@ resource "aws_s3_bucket_versioning" "versioning_bucket1" {
     status = "Disabled"
   }
 }
-*/
+
