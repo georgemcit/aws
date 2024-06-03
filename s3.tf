@@ -1,17 +1,23 @@
-resource "aws_s3_bucket" "bucket1" {
-    count=2
-    tags = {
-        name="test-bucket-${count.index}"
-        }
+resource "aws_s3_bucket" "george" {
+  bucket = "my-tf-test-bucket"
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
 }
 
-resource "aws_s3_bucket_acl" "bucket1" {
-  bucket = aws_s3_bucket.bucket1.id
+resource "aws_s3_bucket" "george" {
+  bucket = "example-bucket"
+}
+
+resource "aws_s3_bucket_acl" "george" {
+  bucket = aws_s3_bucket.george.id
   acl    = "private"
 }
 
-resource "aws_s3_bucket_versioning" "versioning_bucket1" {
-  bucket = aws_s3_bucket.bucket1.id
+resource "aws_s3_bucket_versioning" "versioning_george" {
+  bucket = aws_s3_bucket.george.id
   versioning_configuration {
     status = "Disabled"
   }
