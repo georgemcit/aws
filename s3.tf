@@ -5,10 +5,5 @@ resource "aws_s3_bucket" "george" {
         }
 }
 
-resource "aws_s3_bucket_versioning" "versioning_george" {
-  bucket = aws_s3_george-bucket-$[count.index].id
-  versioning_configuration {
-    status = "Disabled"
-  }
-}
+
 
