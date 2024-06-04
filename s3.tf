@@ -6,7 +6,7 @@ resource "aws_s3_bucket" "george" {
 }
 
 resource "aws_s3_bucket_versioning" "versioning_george" {
-   for_each = aws_s3_bucket.george.id
+   bucket ="george-bucket-${count.index}"
   versioning_configuration {
     status = "Disabled"
   }
