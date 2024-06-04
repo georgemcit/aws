@@ -4,11 +4,6 @@ resource "aws_s3_bucket" "george" {
         name="george-bucket-${count.index}"
         }
 }
-/*
-resource "aws_s3_bucket_acl" "george" {
-  bucket = aws_s3_bucket.george.id
-  acl    = "private"
-}
 
 resource "aws_s3_bucket_versioning" "versioning_george" {
   bucket = aws_s3_bucket.george.id
@@ -16,4 +11,4 @@ resource "aws_s3_bucket_versioning" "versioning_george" {
     status = "Disabled"
   }
 }
-*/
+
