@@ -15,7 +15,7 @@ module "ec2_instance" {
   }
 }
 module "ec2_instance_george" {
-  source  = = "./aws/"
+  source   = "./aws/"
 
   name = "single-instance"
 
