@@ -1,3 +1,4 @@
+\*
 resource "aws_s3_bucket" "george" {
     count=5
     tags = {
@@ -5,5 +6,5 @@ resource "aws_s3_bucket" "george" {
         }
 }
 
-
+*/
 
