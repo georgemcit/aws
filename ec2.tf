@@ -1,11 +1,15 @@
+/*
 locals{
   linux_app=[for f in fileset("${path.module}/$aws", "[^_]*.yaml") : yamldecode(file("${path.module}/$aws/${f}"))]
   linux_app_list = flatten([
     for app in local.linux_app : [
       for linuxapps in try(app.listoflinuxapp, []) :{
+        name=linuxapps.name
         ami=data.aws_ami.amz_linux2.id
-        instance_type = var.instance_type
-        sku_name=linuxapps.sku_name  
+        instance_type=instance_type
+        root-device-type=root-device-type_name  
+        virtualization-type=virtualization-name
+         architecture=architecture_name
         vpc_security_group_ids = [aws_security_group.vpc-ssh.id,aws_security_group.vpc-web.id]
       }
     ]
@@ -16,8 +20,12 @@ resource "aws_instance""myec2m"{ {
   name                = each.value.name
   resource_group_name = azurerm_resource_group.georgeibrahim.name
   location            = azurerm_resource_group.georgeibrahim.location
-  os_type             = each.value.os_type
-  sku_name            = each.value.sku_name
+  ami                 = each.value.data.aws_ami.amz_linux2.id
+  instance_type       = each.value.instance_type
+  root-device-type    =each.value.root-device-type
+  virtualization-type =each.value.virtualization-name
+ architecture         =each.value.architecture_name
+
 }
 
 resource "aws_instance""myec2m"{ {
@@ -29,4 +37,4 @@ resource "aws_instance""myec2m"{ {
  site_config {}
 }
 
-
+*/
