@@ -1,3 +1,4 @@
+/*
 data "aws_ami" "amz_linux2" {
   most_recent = true
   owners      = ["amazon"]
@@ -22,3 +23,4 @@ data "aws_ami" "amz_linux2" {
     values = ["x86_64"]
   }
 }
+*/
