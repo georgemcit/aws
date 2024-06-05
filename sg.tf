@@ -1,4 +1,4 @@
-
+/*
 #Create Security Group -SSH Traffic
 resource "aws_security_group" "vpc-ssh" {
     name="vpc-ssh"
@@ -51,3 +51,4 @@ resource "aws_security_group" "vpc-web" {
       Name="vpc-web"
     }
 }
+*/
