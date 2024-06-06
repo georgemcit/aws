@@ -3,7 +3,7 @@ locals{
   ec2instance_list = flatten([
     for app in local.ec2_instance: [
       for ec2 in try(app.listofec2, []) :{
-        name=ec2.name
+        ami=ec2.ami
       }
     ]
 ])
@@ -15,8 +15,7 @@ resource "aws_instance" "george" {
   name                = each.value.name
   ami           = data.aws_ami.amzn-linux-2023-ami.id
   instance_type = "c6a.2xlarge"
-  subnet_id     = aws_subnet.example.id
-
+  
   cpu_options {
     core_count       = 2
     threads_per_core = 2
