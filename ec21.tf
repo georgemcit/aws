@@ -1,27 +1,9 @@
-locals{
-  ec2_instance=[for f in fileset("${path.module}/aws", "[^_]*.yaml") : yamldecode(file("${path.module}/aws/${f}"))]
-  ec2instance_list = flatten([
-    for app in local.ec2_instance: [
-      for ec2 in try(app.listofec2, []) :{
-        name=ec2.name
-      }
-    ]
-])
-}
-
-
-resource "aws_instance" "george" {
-  for_each            ={for sp in ec2instance_list: "${sp.name}"=>sp }
-  name                = each.value.name
-  ami           = data.aws_ami.amzn-linux-2023-ami.id
-  instance_type = "c6a.2xlarge"
-  
-  cpu_options {
-    core_count       = 2
-    threads_per_core = 2
-  }
-
-  tags = {
-    Name = "tf-george"
-  }
+resource "aws_instance""myec2m"{
+    ami=data.aws_ami.amz_linux2.id
+    instance_type = var.instance_type
+    vpc_security_group_ids = [aws_security_group.vpc-ssh.id,aws_security_group.vpc-web.id]
+    count = 2
+    tags = {
+        name="count-demo-${count.index}"
+    }
 }
