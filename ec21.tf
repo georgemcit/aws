@@ -3,7 +3,7 @@ locals{
   ec2instance_list = flatten([
     for app in local.ec2_instance: [
       for ec2 in try(app.listofec2, []) :{
-        ami=ec2.ami
+        name=ec2.name
       }
     ]
 ])
