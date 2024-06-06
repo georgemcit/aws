@@ -1,5 +1,5 @@
 listofec2:
-  - name: firstec2    
-  - name: secondec2   
-  - name: thirdec2   
+  - ami: firstec2    
+  - ami: secondec2   
+  - ami: thirdec2   
   
