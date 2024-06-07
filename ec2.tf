@@ -9,7 +9,7 @@ aws_ec2=yamldecode(file("${path.module}/$aws/ec2.yaml"))
    ]
 }
 
-resource "aws_instance""aws2c2_george"{
+resource "aws_instance""awsec2_george"{
   for_each = {for sp in local.awsec2_list: "${sp.name}"=>sp }
   ami=data.aws_ami.amz_linux2.id
   instance_type       = each.value.instance_type
