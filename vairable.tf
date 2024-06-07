@@ -1,3 +1,4 @@
+/*
 variable "AWS_ACCESS_KEY"{
   
 }
@@ -33,3 +34,4 @@ variable "business_divsion" {
   type = string
   default = "sap"
 }
+*/
