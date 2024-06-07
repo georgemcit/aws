@@ -1,3 +1,4 @@
+/*
 resource "aws_instance""myec2m"{
     ami=data.aws_ami.amz_linux2.id
     instance_type = var.instance_type
@@ -7,7 +8,7 @@ resource "aws_instance""myec2m"{
         name="count-demo-${count.index}"
     }
 }
-/*
+
 locals{
   awsec2 = yamldecode(file("${path.module}/george/ec2.yaml"))
   awsec2_list = [
