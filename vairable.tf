@@ -27,7 +27,6 @@ variable "instance_keypair" {
   default = "terraform-key"
 }
 
-}
 # Business Division
 variable "business_divsion" {
   description = "Business Division in the large organization this Infrastructure belongs"
