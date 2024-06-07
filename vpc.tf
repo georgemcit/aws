@@ -1,3 +1,4 @@
+/*
 # Create VPC Terraform Module
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
@@ -42,3 +43,4 @@ module "vpc" {
     Type = "Private Database Subnets"
   }
 }
+*/
