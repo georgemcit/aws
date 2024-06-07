@@ -1,10 +1,10 @@
 locals{
   aws_ec2 = yamldecode(file("${path.module}/aws/ec2.yaml"))
   awsec2_list = [
-     for value in local.aws_ec2.listofec2: {
-         name=value.tagename
-         instance_type=value.instancetype
-       }
+    for value in local.aws_ec2.listofec2: {
+        name=value.tagename
+        instance_type=value.instancetype
+      }
     ]
 }
 resource "aws_instance""awsec2_george"{
