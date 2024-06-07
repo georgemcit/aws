@@ -11,7 +11,7 @@ resource "aws_instance""myec2m"{
 locals{
 aws_ec2 = yamldecode(file("${path.module}/aws/ec2.yaml"))
     awsec2_list = [
-      for value in loacl.aws_ec2.listofec2:{
+      for value in local.aws_ec2.listofec2:{
          name=value.tagename
          instance_type=value.instance_type
        }
