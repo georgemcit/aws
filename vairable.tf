@@ -16,3 +16,8 @@ variable "instance_type"{
     type =string
     default="t3.micro"
 }
+variable "environment" {
+  description = "Environment Variable used as a prefix"
+  type = string
+  default = "dev"
+}
