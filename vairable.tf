@@ -27,11 +27,6 @@ variable "instance_keypair" {
   default = "terraform-key"
 }
 
-# Environment Variable
-variable "environment" {
-  description = "Environment Variable used as a prefix"
-  type = string
-  default = "dev"
 }
 # Business Division
 variable "business_divsion" {
