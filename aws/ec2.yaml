@@ -1,4 +1,4 @@
 listofec2:
-  -tagename: georgeec2   
+  -tagname: georgeec2   
    instancetype: t3.micro
   
