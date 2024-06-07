@@ -1,7 +1,7 @@
 locals{
   awsec2 = yamldecode(file("${path.module}/aws/ec2.yaml"))
   awsec2_list = [
-    for value in local.aws_ec2.listofec2: {
+    for value in local.awsec2.listofec2: {
         name=value.tagname
         instance_type=value.instancetype
       }
