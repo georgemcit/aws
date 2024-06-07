@@ -1,40 +1,19 @@
-/*
+
 locals{
-  linux_app=[for f in fileset("${path.module}/$aws", "[^_]*.yaml") : yamldecode(file("${path.module}/$aws/${f}"))]
-  linux_app_list = flatten([
-    for app in local.linux_app : [
-      for linuxapps in try(app.listoflinuxapp, []) :{
-        name=linuxapps.name
-        ami=data.aws_ami.amz_linux2.id
-        instance_type=instance_type
-        root-device-type=root-device-type_name  
-        virtualization-type=virtualization-name
-         architecture=architecture_name
-        vpc_security_group_ids = [aws_security_group.vpc-ssh.id,aws_security_group.vpc-web.id]
-      }
+aws_ec2=yamldecode(file("${path.module}/$aws/ec2.yaml"))
+    awsec2_list: [
+      for value in loacl.aws_ec2.listofec2{
+        name=value.tagename
+        instance_type=value.instance_type
     ]
 ])
 }
-resource "aws_instance""myec2m"{ {
-  for_each            ={for sp in local.linux_app_list: "${sp.name}"=>sp }
-  name                = each.value.name
-  resource_group_name = azurerm_resource_group.georgeibrahim.name
-  location            = azurerm_resource_group.georgeibrahim.location
-  ami                 = each.value.data.aws_ami.amz_linux2.id
+resource "aws_instance""awsec2"{ {
+  for_each            ={for sp in local.awsec2_list: "${sp.name}"=>sp }
+  instance_type = var.instance_type
   instance_type       = each.value.instance_type
-  root-device-type    =each.value.root-device-type
-  virtualization-type =each.value.virtualization-name
- architecture         =each.value.architecture_name
-
+  vpc_security_group_ids = [aws_security_group.vpc-ssh.id,aws_security_group.vpc-web.id]
+   tags = {
+        name=each.value.name
 }
 
-resource "aws_instance""myec2m"{ {
-  for_each            = azurerm_service_plan.george
-  name                = each.value.name
-  resource_group_name = azurerm_resource_group.georgeibrahim.name
-  location            = azurerm_resource_group.georgeibrahim.location
-  service_plan_id     = each.value.id
- site_config {}
-}
-
-*/
