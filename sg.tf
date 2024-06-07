@@ -1,3 +1,4 @@
+/*
 # Security Group for Public Bastion Host
 module "public_bastion_sg" {
   source  = "terraform-aws-modules/security-group/aws"
@@ -15,3 +16,4 @@ module "public_bastion_sg" {
   egress_rules = ["all-all"]
   tags = local.common_tags
 }
+*/
