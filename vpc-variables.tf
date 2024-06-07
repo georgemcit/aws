@@ -1,3 +1,4 @@
+/*
 # VPC Input Variables
 
 # VPC Name
@@ -70,3 +71,4 @@ variable "vpc_single_nat_gateway" {
   type = bool
   default = true
 }
+*/
