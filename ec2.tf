@@ -1,5 +1,5 @@
 locals{
-  awsec2 = yamldecode(file("${path.module}/aws/${f}"))]
+  awsec2 = yamldecode(file("${path.module}/aws/${f}"))
   awsec2_list = [
     for value in local.awsec2.listofec2: {
         name=value.tagname
