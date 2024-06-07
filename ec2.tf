@@ -1,3 +1,4 @@
+/*
 # Bastion Host - EC2 Instance that will be created in VPC Public Subnet
 module "ec2_public" {
   source  = "terraform-aws-modules/ec2-instance/aws"
@@ -15,3 +16,4 @@ module "ec2_public" {
   vpc_security_group_ids = [module.public_bastion_sg.security_group_id]
   tags = local.common_tags
 }
+*/
