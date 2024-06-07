@@ -5,8 +5,8 @@ aws_ec2=yamldecode(file("${path.module}/$aws/ec2.yaml"))
       for value in loacl.aws_ec2.listofec2:{
          name=value.tagename
          instance_type=value.instance_type
-   }
-  }
+       }
+    ]
 }
 
 
