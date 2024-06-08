@@ -16,7 +16,7 @@ variable "cidr_block_sb"{
 variable "vpc_id"{
   type=string
 } 
-variable "atags"{
+variable "tags"{
   type=string
 }
 variable "availability_zone"{
