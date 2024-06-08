@@ -7,10 +7,10 @@ variable "instance_type"{
 variable "subnet_id"{
   type=string
 }
-variable "cidr_block"{
+variable "cidr_block_vpc"{
   type=list(string)
 }
-variable "cidr_block"{
+variable "cidr_block_sb"{
   type=list(string)
 }
 variable "vpc_id"{
