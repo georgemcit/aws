@@ -1,42 +1,42 @@
 
-data "aws_ami" "ubuntu" {
+data "aws_ami" "amzn-linux-2023-ami" {
   most_recent = true
+  owners      = ["amazon"]
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+    values = ["al2023-ami-2023.*-x86_64"]
   }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["099720109477"] # Canonical
 }
 
-resource "aws_instance" "web" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = "t3.micro"
+resource "aws_instance" "george" {
+  ami           = data.aws_ami.amzn-linux-2023-ami.id
+  instance_type = "c6a.2xlarge"
+  subnet_id     = aws_subnet.george.id
+
+  cpu_options {
+    core_count       = 2
+    threads_per_core = 2
+  }
 
   tags = {
-    Name = "HelloWorld"
+    Name = "tf-george"
   }
 }
-resource "aws_vpc" "george_vpc" {
+resource "aws_vpc" "george" {
   cidr_block = "172.16.0.0/16"
 
   tags = {
-    Name = "tf-example"
+    Name = "tf-george"
   }
 }
 
-resource "aws_subnet" "george_subnet" {
-  vpc_id            = aws_vpc.my_vpc.id
+resource "aws_subnet" "george" {
+  vpc_id            = aws_vpc.george.id
   cidr_block        = "172.16.10.0/24"
-  availability_zone = "us-west-2a"
+  availability_zone = "us-east-2a"
 
   tags = {
-    Name = "tf-example"
+    Name = "tf-george"
   }
 }
