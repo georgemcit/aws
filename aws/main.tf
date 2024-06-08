@@ -24,7 +24,7 @@ resource "aws_instance" "george" {
   }
 }
 resource "aws_vpc" "george" {
-  cidr_block = var.cidr_block_vpc
+  cidr_block_ip = var.cidr_block_vpc
 
   tags = {
     Name = var.tags
@@ -33,7 +33,7 @@ resource "aws_vpc" "george" {
 
 resource "aws_subnet" "george" {
   vpc_id            = var.vpc_id
-  cidr_block        = var.cidr_block_sb
+  cidr_block_ip     = var.cidr_block_sb
   availability_zone = var.availability_zone
 
   tags = {
