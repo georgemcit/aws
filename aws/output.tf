@@ -2,23 +2,23 @@ variable "ami"{
   type=string
 }
 variable "instance_type"{
-  type=string
+  type  =string
 }
 variable "subnet_id"{
-  type=string
+  type  =string
 }
 variable "vpc_cidr_block"{
-  type=list(string)
+  value  =list(string)
 }
 variable "sb_cidr_block"{
-  type=list(string)
+  value  =list(string)
 }
 variable "vpc_id"{
-  type=string
+  type  =string
 } 
 variable "tags"{
-  type=string
+  type  =string
 }
 variable "availability_zone"{
-  type=string
+  type  =string
 }
