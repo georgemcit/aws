@@ -10,7 +10,7 @@ variable "subnet_id"{
 variable "vpc_cidr_block"{
   type=list
 }
-variable "vpc_cidr_block"{
+variable "sb_cidr_block"{
   type=list
 }
 variable "vpc_id"{
