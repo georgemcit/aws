@@ -1,4 +1,4 @@
-
+/*
 module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
 
@@ -15,7 +15,7 @@ module "ec2_instance" {
     Environment = "dev"
   }
 }
-
+*/
 module "ec2_instance_george" {
   source   = "./aws/"
 }
