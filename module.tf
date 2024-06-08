@@ -15,8 +15,8 @@ module "ec2_instance" {
     Environment = "dev"
   }
 }
-*/
+
 module "ec2_instance_george" {
   source   = "./aws/"
 }
-
+*/
