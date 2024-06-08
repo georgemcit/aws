@@ -8,10 +8,10 @@ variable "subnet_id"{
   type  =string
 }
 variable "vpc_cidr_block"{
-  value  =list(string)
+  type  =list(string)
 }
 variable "sb_cidr_block"{
-  value  =list(string)
+  type  =list(string)
 }
 variable "vpc_id"{
   type  =string
