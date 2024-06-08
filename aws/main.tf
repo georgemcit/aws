@@ -33,7 +33,7 @@ resource "aws_vpc" "george" {
 
 resource "aws_subnet" "george" {
   vpc_id            = var.vpc_id
-  cidr_block        = var.vpc_cidr_block
+  cidr_block        = var.sb_cidr_block
   availability_zone = var.availability_zone
 
   tags = {
