@@ -8,10 +8,10 @@ variable "subnet_id"{
   type=string
 }
 variable "cidr_block_vpc"{
-  type=list(string)
+  type=(list)
 }
 variable "cidr_block_sb"{
-  type=list(string)
+  type=(list)
 }
 variable "vpc_id"{
   type=string
