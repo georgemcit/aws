@@ -27,7 +27,7 @@ resource "aws_vpc" "george" {
   cidr_block = var.cidr_block_vpc
 
   tags = {
-    Name = var.tag
+    Name = var.tags
   }
 }
 
