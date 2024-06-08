@@ -10,9 +10,9 @@ data "aws_ami" "amzn-linux-2023-ami" {
 }
 
 resource "aws_instance" "george" {
-  ami           = data.aws_ami.amzn-linux-2023-ami.id
-  instance_type = "c6a.2xlarge"
-  subnet_id     = aws_subnet.george.id
+  ami           = var.ami
+  instance_type = var.instance_type
+  subnet_id     = var.subnet_id
 
   cpu_options {
     core_count       = 2
@@ -20,23 +20,23 @@ resource "aws_instance" "george" {
   }
 
   tags = {
-    Name = "tf-george"
+    Name = var.tag
   }
 }
 resource "aws_vpc" "george" {
-  cidr_block = "172.16.0.0/16"
+  cidr_block = var.cidr_block_vpc
 
   tags = {
-    Name = "tf-george"
+    Name = var.tag
   }
 }
 
 resource "aws_subnet" "george" {
-  vpc_id            = aws_vpc.george.id
-  cidr_block        = "172.16.10.0/24"
-  availability_zone = "us-east-2a"
+  vpc_id            = var.vpc_id
+  cidr_block        = var.cidr_block-sb
+  availability_zone = var.availability_zone
 
   tags = {
-    Name = "tf-george"
+    Name = var.tag
   }
 }
