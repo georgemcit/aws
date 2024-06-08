@@ -20,7 +20,7 @@ resource "aws_instance" "george" {
   }
 
   tags = {
-    Name = var.tag
+    Name = var.tags
   }
 }
 resource "aws_vpc" "george" {
@@ -37,6 +37,6 @@ resource "aws_subnet" "george" {
   availability_zone = var.availability_zone
 
   tags = {
-    Name = var.tag
+    Name = var.tags
   }
 }
